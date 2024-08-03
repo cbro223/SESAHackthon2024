@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { FaBars } from 'react-icons/fa'; // Import an icon from react-icons
+import React, {useState} from 'react';
+import {FaBars} from 'react-icons/fa'; // Import an icon from react-icons
 
-export default function DropdownMenu({ items }) {
+export default function DropdownMenu({items}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,12 +16,13 @@ export default function DropdownMenu({ items }) {
           className="inline-flex justify-center w-10 h-10 rounded-full border border-gray-300 shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
           onClick={toggleMenu}
         >
-          <FaBars />
+          <FaBars/>
         </button>
       </div>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+        <div
+          className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
           <div className="py-1">
             {items.map((item, index) => (
               <a

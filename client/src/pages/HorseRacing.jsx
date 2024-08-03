@@ -1,8 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Header from "../components/header";
-import { NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import Header from "../components/Header";
+import {NavLink, useParams} from "react-router-dom";
 
 export default function HorseRacing() {
   const chosen = "Blue";
@@ -15,7 +13,7 @@ export default function HorseRacing() {
   //stake is the stake of the user's bet 
   //bettingAmount is the amount of oxygen
 
-  let { bettedOn, stake, bettingAmount } = useParams();
+  let {bettedOn, stake, bettingAmount} = useParams();
 
 
   const [gameOver, setGameOver] = useState(false);
@@ -35,7 +33,6 @@ export default function HorseRacing() {
 
         setBluePosition((prevPosition) =>
           prevPosition += moveBlueBy
-
         );
         setGreenPosition((prevPosition) =>
           prevPosition += moveGreenBy
@@ -58,14 +55,11 @@ export default function HorseRacing() {
           setWinner("blue");
         } else if (greenPosition >= endLocation) {
           setWinner("green");
-        }
-        else if (pinkPosition >= endLocation) {
+        } else if (pinkPosition >= endLocation) {
           setWinner("pink");
-        }
-        else if (yellowPosition >= endLocation) {
+        } else if (yellowPosition >= endLocation) {
           setWinner("yellow");
         }
-
 
 
       }, 1); // Update positions every 1ms
@@ -78,14 +72,14 @@ export default function HorseRacing() {
 
 
     <div>
-      <Header />
+      <Header/>
       {/* Render the winning model only when the game is over */}
-      {gameOver && <WinningModal winner={winner} bettedOn={bettedOn} bettingAmount={bettingAmount} stake={stake} />}
+      {gameOver && <WinningModal winner={winner} bettedOn={bettedOn} bettingAmount={bettingAmount} stake={stake}/>}
       <div className="flex flex-col gap-2 justify-center items-center">
-        <IndividualRacer colour="blue" position={bluePosition} />
-        <IndividualRacer colour="green" position={greenPosition} />
-        <IndividualRacer colour="pink" position={pinkPosition} />
-        <IndividualRacer colour="yellow" position={yellowPosition} />
+        <IndividualRacer colour="blue" position={bluePosition}/>
+        <IndividualRacer colour="green" position={greenPosition}/>
+        <IndividualRacer colour="pink" position={pinkPosition}/>
+        <IndividualRacer colour="yellow" position={yellowPosition}/>
       </div>
 
 
@@ -94,7 +88,7 @@ export default function HorseRacing() {
 
 }
 
-const IndividualRacer = ({ colour, position }) => {
+const IndividualRacer = ({colour, position}) => {
   const upperCaseColour = colour.charAt(0).toUpperCase() + colour.slice(1)
   const [animationStage, setAnimationStage] = useState(1);
 
@@ -113,14 +107,15 @@ const IndividualRacer = ({ colour, position }) => {
 
   return (
     <div className={`w-11/12 bg-${colour}-500 flex text-white rounded-md`}>
-      <img src={`/assets/Horses/${upperCaseColour}Run_${animationStage}.png`} alt="" style={{ left: `${position}%` }} className="w-16 relative" />
-      <img src="/assets/FinishLine.png" alt="" className=" h-100 relative left-[90%] w-4" />
+      <img src={`/assets/Horses/${upperCaseColour}Run_${animationStage}.png`} alt="" style={{left: `${position}%`}}
+           className="w-16 relative"/>
+      <img src="/assets/FinishLine.png" alt="" className=" h-100 relative left-[90%] w-4"/>
       <p>Current Postion: {position}</p>
     </div>
   );
 }
 
-const WinningModal = ({ winner, bettedOn, stake, bettingAmount }) => {
+const WinningModal = ({winner, bettedOn, stake, bettingAmount}) => {
   const stakeInt = parseInt(stake);
   const bettingAmountInt = parseInt(bettingAmount);
   return (
@@ -149,7 +144,7 @@ const WinningModal = ({ winner, bettedOn, stake, bettingAmount }) => {
     </div>
   );
 }
-const LosingModal = ({ winner }) => {
+const LosingModal = ({winner}) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-4 rounded-md">
