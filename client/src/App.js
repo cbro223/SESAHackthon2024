@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/" element={<Intro/>} />
         <Route exact path="/home" element={<Home/>} />
         <Route exact path="/horse-racing-bet" element={<HorseRacingBetting/>} />
-        <Route exact path="/horse-racing" element={<HorseRacing/>} />
+        <Route exact path="/horse-racing/:bettedOn/:stake/:bettingAmount" element={<HorseRacing/>} />
         <Route exact path="/rocket-racing-bet" element={<RocketRacingBets />} />
         <Route exact path="/slots" element={<SlotsPage/>} />
         <Route exact path="/credits" element={<Credits/>} />

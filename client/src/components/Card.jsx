@@ -40,9 +40,9 @@ export default function Card({ title, text, imgUrl, linkTo }) {
 
 function DropDown({ title, text }) {
   return (
-    <div className="px-6 py-4 content">
-      <div className="font-bold text-xl mb-2">{title}</div>
-      <p className="text-gray-700 text-base">
+    <div className="px-6 py-4 bg-blue">
+      <div className="font-bold text-xl text-white mb-2">{title}</div>
+      <p className="text-white text-base">
         {text}
       </p>
     </div>
