@@ -7,7 +7,7 @@ export default function Header() {
         <div className="header flex items-center p-4 bg-[#202060] text-white">
                 <img src="./assets/Logo_NoRing.png" alt="" className="h-16 object-contain"/>
 
-            <NavLink to={"/home"} activeStyle className={"bubbly text-6xl"}>Lunar Luck</NavLink>
+            <NavLink to={"/home"} className={"bubbly text-6xl"}>Lunar Luck</NavLink>
 
             <div className="flex-grow"></div> 
             <Oxygen data={data}/>
