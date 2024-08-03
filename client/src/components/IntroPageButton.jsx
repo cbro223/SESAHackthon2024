@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import data from "../data.json";
+import React from "react";
 
-export default function IntroButton(){
-  return(
-    <button className= "confetti-button rounded-3xl">
+export default function IntroButton() {
+  return (
+    <button className="confetti-button rounded-3xl">
       Get Started
     </button>
   )

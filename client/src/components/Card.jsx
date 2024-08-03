@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useState} from 'react';
+import {NavLink} from 'react-router-dom';
 
-export default function Card({ title, text, imgUrl, linkTo }) {
+export default function Card({title, text, imgUrl, linkTo}) {
   const [hovering, setHovering] = useState(false);
 
   function toggleMouseOver() {
@@ -22,15 +22,15 @@ export default function Card({ title, text, imgUrl, linkTo }) {
   return (
     <>
       <NavLink to={linkTo}>
-        <div 
-          className="max-w-sm rounded overflow-hidden shadow-lg" 
-          onMouseEnter={toggleMouseOver} 
+        <div
+          className="max-w-sm rounded overflow-hidden shadow-lg"
+          onMouseEnter={toggleMouseOver}
           onMouseLeave={toggleMouseOver}
           style={{float: 'left', positition: 'relative', margin: 0}}
         >
           <img className="w-full" src={imgUrl} alt={title}/>
           <div>
-          {hovering && <DropDown title={title} text={text} />}
+            {hovering && <DropDown title={title} text={text}/>}
           </div>
         </div>
       </NavLink>
@@ -38,7 +38,7 @@ export default function Card({ title, text, imgUrl, linkTo }) {
   );
 }
 
-function DropDown({ title, text }) {
+function DropDown({title, text}) {
   return (
     <div className="px-6 py-4 bg-blue">
       <div className="font-bold text-xl text-white mb-2">{title}</div>

@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/header';
+import Header from './components/Header';
 import Home from './pages/Home';
 import HorseRacingBetting from './pages/HorseRacingBetting';
 import Intro from './pages/Intro';
@@ -18,17 +18,17 @@ function App() {
   return (
     <div className='w-100 h-100'>
 
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Intro/>} />
-        <Route exact path="/home" element={<Home/>} />
-        <Route exact path="/horse-racing-bet" element={<HorseRacingBetting/>} />
-        <Route exact path="/horse-racing/:bettedOn/:stake/:bettingAmount" element={<HorseRacing/>} />
-        <Route exact path="/rocket-racing-bet" element={<RocketRacingBets />} />
-        <Route exact path="/slots" element={<SlotsPage/>} />
-        <Route exact path="/credits" element={<Credits/>} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Intro/>}/>
+          <Route exact path="/home" element={<Home/>}/>
+          <Route exact path="/horse-racing-bet" element={<HorseRacingBetting/>}/>
+          <Route exact path="/horse-racing/:bettedOn/:stake/:bettingAmount" element={<HorseRacing/>}/>
+          <Route exact path="/rocket-racing-bet" element={<RocketRacingBets/>}/>
+          <Route exact path="/slots" element={<SlotsPage/>}/>
+          <Route exact path="/credits" element={<Credits/>}/>
+        </Routes>
+      </Router>
     </div>
 
   );

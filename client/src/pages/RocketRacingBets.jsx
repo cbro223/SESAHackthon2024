@@ -1,6 +1,5 @@
-import React from "react";
-import Header from "../components/header";
-import { useState } from "react";
+import React, {useState} from "react";
+import Header from "../components/Header";
 
 export default function RocketRacingBets() {
   const competitors = [ // 
@@ -20,13 +19,16 @@ export default function RocketRacingBets() {
 
   return (
     <div className={"slater"}>
-      <Header />
+      <Header/>
       <div className="w-100 flex justify-center">
-        <img src="/assets/Banners/GalaticGallopBanner.png" alt="Banner title" className="w-1/2 drop-shadow-[2px_2px_10px_#c7b8bf]" />
+        <img src="/assets/Banners/GalaticGallopBanner.png" alt="Banner title"
+             className="w-1/2 drop-shadow-[2px_2px_10px_#c7b8bf]"/>
       </div>
       <RocketBettingOption title={'First Place'} options={competitors}/>
       <RocketBettingOption title={'Second Place'} options={competitors}/>
-      <button className="rounded-md bg-blue-200" onClick={() => onSubmitChoices(['First Place', 'Second Place'])}> SUBMIT </button>
+      <button className="rounded-md bg-blue-200"
+              onClick={() => onSubmitChoices(['First Place', 'Second Place'])}> SUBMIT
+      </button>
     </div>
   );
 }
@@ -39,8 +41,8 @@ function RocketBettingOption({title, options}) {
   }
   return (
     <>
-    <div className={`w-100 bg-lime-500 flex p-2 items-center text-black rounded-md`} onClick={toggleVisibility}>
-      <h1 className={'w-60'}>{title}</h1>
+      <div className={`w-100 bg-lime-500 flex p-2 items-center text-black rounded-md`} onClick={toggleVisibility}>
+        <h1 className={'w-60'}>{title}</h1>
         <select id={title.split().join()}>
           {options.map((item, index) => (
             <option key={index} value={item} id={index} style={{borderRadius: '5px'}}>{item}</option>
