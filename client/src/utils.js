@@ -1,7 +1,6 @@
-import data from './data.json';
+const data = require("./data.json");
+// const fs = require('fs');
 
-
-
-export const getOxygen = () => {
-    return 6000;
+export function getOxygen() {
+    return data.oxygen;
 }
