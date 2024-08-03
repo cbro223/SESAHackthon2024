@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header';
+import Home from './pages/Home';
+import HorseRacingBetting from './pages/HorseRacingBetting';
+import Intro from './pages/Intro';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='w-100 h-100'>
+
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Intro/>} />
+        <Route exact path="/home" element={<Home/>} />
+        <Route exact path="/test" element={<h1>Hello, World</h1>} />
+        <Route exact path="/horse-racing-bet" element={<HorseRacingBetting/>} />
+      </Routes>
+    </Router>
     </div>
+
   );
 }
 
