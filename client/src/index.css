@@ -268,3 +268,21 @@ body {
 .app-wrap.winner-false {
     animation: linear 1s spin;
 }
+
+/* #####################################################################################################################
+# PLANETS
+##################################################################################################################### */
+.cockpit {
+    background-image: url("../public/assets/planets/Cockpit.PNG");
+    background-size: 100% 100vh;
+}
+
+.planet {
+    border-radius: 100%;
+    /*filter: invert(100%);*/
+}
+
+.planet:hover {
+    border: 5px solid #5bc8af;
+    cursor: pointer;
+}
