@@ -20,8 +20,8 @@ export default function Home() {
         <Header/>
         <div className="justify-center g-cover bg-center w-full h-screen home-page">
           <div style={cardSpread} className={'card-container'}>
-            <Card title="Galactic Gallop" text={GalacticGallop} imgUrl="./assets/cards/GalacticGallop.png" linkTo={'/horse-racing-bet'}/>
-            <Card title="Rocket Racers" text={RocketRacers} imgUrl="./assets/cards/GalacticGallop.PNG" linkTo={'/'}/>
+            <Card title="Galactic Gallop" text={GalacticGallop} imgUrl="./assets/cards/GalacticGallop.PNG" linkTo={'/horse-racing-bet'}/>
+            <Card title="Rocket Racers" text={RocketRacers} imgUrl="./assets/cards/RocketRacers.png" linkTo={'/rocket-racing-bet'}/>
             <Card title="Stellar Slots" text={StellarSlots} imgUrl="./assets/cards/StellarSlotsIcon.png" linkTo={'/slots'}/>
           </div>
         </div>

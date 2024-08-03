@@ -63,6 +63,10 @@ body {
   background: var(--slate-black);
 }
 
+.slater {
+  background: var(--slate-black);
+}
+
 .card-container {
   display: flex;
   justify-content: space-between;
@@ -170,3 +174,4 @@ body {
   top: 80%;
   left: 80%;
 }
+

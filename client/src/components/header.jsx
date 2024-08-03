@@ -51,7 +51,7 @@ const Oxygen = ({ data }) => {
         <div className="relative w-40 mr-4">
             <div className="outer-bar w-44 border-white rounded-md border-solid border-2 cursor-pointer" onClick={toggleDropdown}>
                 <div className={`inner-bar ${colour} whitespace-nowrap`} style={{ width: `${oxygenPercentage}%` }}>
-                    <p>{data.oxygen} moles</p>
+                <p>{data.oxygen} m<sup>3</sup></p>
                 </div>
             </div>
             {dropdownVisible && (
