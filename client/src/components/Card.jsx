@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default function Card({ title, text, imgUrl }) {
+export default function Card({ title, text, imgUrl, linkTo }) {
   const [hovering, setHovering] = useState(false);
 
   function toggleMouseOver() {
@@ -21,7 +21,7 @@ export default function Card({ title, text, imgUrl }) {
 
   return (
     <>
-      <NavLink to={"/"}>
+      <NavLink to={linkTo}>
         <div 
           className="max-w-sm rounded overflow-hidden shadow-lg" 
           onMouseEnter={toggleMouseOver} 

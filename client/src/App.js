@@ -3,12 +3,15 @@ import Header from './components/header';
 import Home from './pages/Home';
 import HorseRacingBetting from './pages/HorseRacingBetting';
 import Intro from './pages/Intro';
+import SlotsPage from './pages/Slots';
+import Credits from './pages/Credits';
 
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import HorseRacing from './pages/HorseRacing';
 
 function App() {
   return (
@@ -19,7 +22,9 @@ function App() {
         <Route exact path="/" element={<Intro/>} />
         <Route exact path="/home" element={<Home/>} />
         <Route exact path="/horse-racing-bet" element={<HorseRacingBetting/>} />
-        <Route exact path="/credits" element={<h1>Hello, World</h1>} />
+        <Route exact path="/slots" element={<SlotsPage/>} />
+        <Route exact path="/horse-racing" element={<HorseRacing/>} />
+        <Route exact path="/credits" element={<Credits/>} />
       </Routes>
     </Router>
     </div>

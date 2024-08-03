@@ -3,7 +3,14 @@ import React from "react";
 export default function Credits() {
   return (
     <>
-      <h1>Hello, World!</h1>
+      <ul>
+        <li>Corey Brown</li>
+        <li>Chris Oliver</li>
+        <li>Jessica Zeng</li>
+        <li>Kevin Cao</li>
+        <li>Samuel Chung</li>
+        <li>Shuhei Yokkaichi</li>
+      </ul>
     </>
   );
 }
