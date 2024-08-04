@@ -148,8 +148,8 @@ const WinningModal = ({ winner, bettedOn, stake, bettingAmount }) => {
           </div>
         )}
         <div className="flex justify-between w-100 gap-10">
-          <NavLink to="/horse-racing-bet" className={"rounded-md bg-green-500 p-2 text-4xl nunito"}>Play Again</NavLink>
-          <NavLink to="/home" className={"rounded-md bg-red-500 p-2 text-4xl nunito"}>Go Home</NavLink>
+          <NavLink to="/horse-racing-bet" className={"rounded-md inc p-2 text-4xl nunito"}>Play Again</NavLink>
+          <NavLink to="/home" className={"rounded-md dec p-2 text-4xl nunito"}>Go Home</NavLink>
 
         </div>
       </div>

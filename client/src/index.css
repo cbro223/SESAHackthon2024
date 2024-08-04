@@ -295,7 +295,8 @@ body {
     /*filter: invert(100%);*/
 }
 
-.planet:hover {
+.not-found:hover {
+    border-radius: 100%;
     border: 5px solid #5bc8af;
     cursor: pointer;
 }

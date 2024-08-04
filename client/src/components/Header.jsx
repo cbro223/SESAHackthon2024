@@ -37,7 +37,7 @@ const Oxygen = () => {
     }
     
     getData()
-    const intervalId = setInterval(getData, 1000); // Call getData every 2 seconds
+    const intervalId = setInterval(getData, 500); // Call getData every 2 seconds
 
   return () => clearInterval(intervalId);
   }, [oxygen, oxygenPercentage]);

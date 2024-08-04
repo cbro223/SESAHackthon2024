@@ -73,20 +73,20 @@ class SlotMachine extends React.Component {
       if (results === true) {
         let amount = 0;
         switch (first) {
-          case -0:
-            amount = this.state.betAmount * 5;
-            this.setState({ winAmount: this.state.betAmount * 5 });
-
-          case -1:
-            amount = this.state.betAmount * 10
+          case -0: // 7
+            amount = this.state.betAmount * 10;
             this.setState({ winAmount: this.state.betAmount * 10 });
-          case -2:
+
+          case -1: // alien
+            amount = this.state.betAmount * 1.5
+            this.setState({ winAmount: this.state.betAmount * 1.5});
+          case -2: // comet
+            amount = this.state.betAmount * 5
+            this.setState({ winAmount: this.state.betAmount * 5 });
+          case -3:  // shoe 
             amount = this.state.betAmount * 50
             this.setState({ winAmount: this.state.betAmount * 50 });
-          case -3:
-            amount = this.state.betAmount * 1.5
-            this.setState({ winAmount: this.state.betAmount * 1.5 });
-          case -4:
+          case -4: // black hole
             amount = this.state.betAmount * 100
             this.setState({ winAmount: this.state.betAmount * 100 });
 
@@ -133,8 +133,8 @@ class SlotMachine extends React.Component {
                 <div className="flex flex-col">
                   <span className={"bg-black m-2 py-2 px-10 text-white text-centre"}>{this.state.betAmount}</span>
                   <div className="flex justify-content">
-                    <button className={"bg-red-400 rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => this.updateBetAmount(-10)}>-10</button>
-                    <button className={"bg-green-400 rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => this.updateBetAmount(+10)}>+10</button>
+                    <button className={"dec rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => this.updateBetAmount(-10)}>-10</button>
+                    <button className={"inc rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => this.updateBetAmount(+10)}>+10</button>
                   </div>
                 </div>
               </div>
@@ -296,11 +296,11 @@ function BettingModal({ bet, modifyBetAmount, toggleSelecting }) {
       <div className="bg-white p-8 border-4 rounded-md flex flex-col justify-center items-center drop-shadow-[2px_2px_10px_#5bc8af]">
         <h1 className="nunito text-3xl">Choose Bet Amount:</h1>
         <div style={{ flex: 'left' }} className="mb-4">
-          <button className={"bg-red-400 rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(-10)}>-10</button>
-          <button className={"bg-red-400 rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(-1)}>-1</button>
+          <button className={"dec rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(-10)}>-10</button>
+          <button className={"dec rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(-1)}>-1</button>
           <span className={"bg-black rounded-md m-2 py-2 px-6 text-white"}>{bet}</span>
-          <button className={"bg-green-400 rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(+1)}>+1</button>
-          <button className={"bg-green-400 rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(+10)}>+10</button>
+          <button className={"inc rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(+1)}>+1</button>
+          <button className={"inc rounded-md w-10 m-2 text-center py-2 text-white"} onClick={() => modifyBetAmount(+10)}>+10</button>
         </div>
 
         <div style={{ flex: 'left' }}>
@@ -327,8 +327,8 @@ function WinningModal({ betAmount }) {
         </div>
 
         <div className="flex justify-between w-100 gap-10">
-          <NavLink onClick={reload} className={"rounded-md bg-green-500 p-2 text-4xl nunito"}>Play Again</NavLink>
-          <NavLink to="/home" className={"rounded-md bg-red-500 p-2 text-4xl nunito"}>Go Home</NavLink>
+          <NavLink onClick={reload} className={"rounded-md inc p-2 text-4xl nunito"}>Play Again</NavLink>
+          <NavLink to="/home" className={"rounded-md dec p-2 text-4xl nunito"}>Go Home</NavLink>
 
         </div>
       </div>

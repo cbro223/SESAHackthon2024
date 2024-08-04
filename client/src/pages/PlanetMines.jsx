@@ -148,6 +148,9 @@ function Planet({ colour, rigged, returnPlanetClick }) {
   const [found, setFound] = useState(false);
 
   const onPlanetClick = () => {
+    if (found) {
+      return
+    }
     setFound(true);
     if (rigged) {
       setExplode(true);
@@ -158,7 +161,7 @@ function Planet({ colour, rigged, returnPlanetClick }) {
   return (
     <div className="max-w-sm rounded w-36" style={{ float: 'left', position: 'relative', margin: 0 }}
       onClick={onPlanetClick}>
-      <img className={explode ? "explode" : "planet"}
+      <img className={explode ? "explode" : found ? "planet" : "not-found"}
         src={"./assets/planets/" + (explode ? "Explode" : found ? "tick" : "planet") + colour + ".png"}
         alt={colour + " Planet"} />
     </div>
@@ -198,8 +201,8 @@ function Stater({ gameState, bet, mines }) {
         <div className="bg-white p-8 border-4 rounded-md flex flex-col justify-center items-center drop-shadow-[2px_2px_10px_#5bc8af]">
           <h1 className="nunito text-3xl">{gameState === 1 ? "YOU WIN" : "YOU LOSE"}</h1>
           <div className="flex justify-between w-100 gap-10">
-            <span onClick={reload} className={"rounded-md bg-green-500 p-2 text-4xl nunito hover:cursor-pointer"}>Play Again</span>
-            <NavLink to="/home" className={"rounded-md bg-red-500 p-2 text-4xl nunito"}>Go Home</NavLink>
+            <span onClick={reload} className={"rounded-md inc p-2 text-4xl nunito hover:cursor-pointer"}>Play Again</span>
+            <NavLink to="/home" className={"rounded-md dec p-2 text-4xl nunito"}>Go Home</NavLink>
           </div>
         </div>
       </div>
