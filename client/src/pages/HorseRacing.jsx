@@ -28,10 +28,10 @@ export default function HorseRacing() {
   useEffect(() => {
     if (!gameOver) {
       const interval = setInterval(() => {
-        const moveBlueBy = Math.random() * 0.4;
-        const moveGreenBy = Math.random() * 0.9;
-        const movePinkBy = Math.random() * 0.3;
-        const moveYellowBy = Math.random() * 0.7;
+        const moveBlueBy = Math.random() * 3;
+        const moveGreenBy = Math.random() * 6;
+        const movePinkBy = Math.random() * 4;
+        const moveYellowBy = Math.random() * 5;
 
         setBluePosition((prevPosition) =>
           prevPosition += moveBlueBy
@@ -45,7 +45,7 @@ export default function HorseRacing() {
         setYellowPosition((prevPosition) =>
           prevPosition += moveYellowBy
         );
-        const endLocation = 91.5;
+        const endLocation = 1090;
         if (bluePosition >= endLocation || greenPosition >= endLocation || pinkPosition >= endLocation || yellowPosition >= endLocation) {
           clearInterval(interval);
           setGameOver(true);
@@ -72,7 +72,7 @@ export default function HorseRacing() {
   return (
 
 
-    <div>
+    <div className="flex flex-col">
       <div className="mb-4">
       <Header />
       </div>
@@ -84,7 +84,10 @@ export default function HorseRacing() {
         <IndividualRacer colour="pink" position={pinkPosition} />
         <IndividualRacer colour="yellow" position={yellowPosition} />
       </div>
-
+      
+      
+      <img src="/assets/Stadium.png" alt="stadium image"
+           className="flex items-center justify-content"/>
 
     </div>
   )
@@ -109,7 +112,7 @@ const IndividualRacer = ({ colour, position }) => {
   }, []);
   return (
     <div className={`w-11/12 bg-${colour}-500 flex text-white rounded-md h-37`}>
-      <img src={`/assets/Horses/${upperCaseColour}Run_${animationStage}.png`} alt="" style={{ left: `${position}%` }}
+      <img src={`/assets/Horses/${upperCaseColour}Run_${animationStage}.png`} alt="" style={{ left: `${position}px` }}
         className="w-16 relative relative-scale-140" />
       <img src="/assets/FinishLine.png" alt="" className=" h-100 relative left-[90%] w-4" />
       </div>

@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import data from "../data.json";
 import {NavLink} from 'react-router-dom';
 import { fetchOxygenData, updateOxygenData } from "../utils";
+
 export default function Header() {
   return (
     <div className="header flex items-center p-4 bg-[#202060] text-white">
@@ -69,20 +70,24 @@ const Oxygen = () => {
 
   return (
     <div className="relative w-40 mr-4">
-      <div className="outer-bar w-44 border-white rounded-md border-solid border-4 cursor-pointer"
-           onClick={toggleDropdown}>
-        <div className={`inner-bar ${colour} whitespace-nowrap`} style={{width: `${oxygenPercentage}%`}}>
-          <p className="nunito">{oxygen} m<sup>3</sup></p>
+      <img src="/assets/o2logo.png" style={{position: "absolute", transform: "scale(2, 2)"}}/>
+      <div class="bg-cover bg-center">
+        <div className="outer-bar bg-blue-200 w-44 border-blue-200 rounded-md border-solid border-4 cursor-pointer" 
+            onClick={toggleDropdown}
+            style={{position: 'relative'}}>
+          <div className={`inner-bar rounded-md ${colour} whitespace-nowrap`} style={{width: `${oxygenPercentage}%`}}>
+            <p className="nunito text-black" style={{transfrom: "translate(0, -50%)"}}>{oxygen} m<sup>3</sup></p>
+          </div>
         </div>
       </div>
-      {dropdownVisible && (
-        <div ref={dropdownRef} className="absolute mt-2 w-48 bg-white rounded-md shadow-lg z-10 text-black">
+      {/* {dropdownVisible && (
+        <div ref={dropdownRef} style={{transform: "translateZ(tz)"}} className="absolute mt-2 w-48 bg-white rounded-md shadow-lg z-10 text-black">
           <ul>
             <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Add</li>
             <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Withdraw</li>
           </ul>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
