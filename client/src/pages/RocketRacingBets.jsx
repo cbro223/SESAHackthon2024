@@ -13,7 +13,6 @@ export default function RocketRacingBets() {
       var e = document.getElementById(element.split().join());
       var value = e.value;
       var text = e.options[e.selectedIndex].text;
-      console.log(text)
     });
   }
 

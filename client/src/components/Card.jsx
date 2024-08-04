@@ -12,6 +12,7 @@ export default function Card({title, text, imgUrl, linkTo}) {
   return (
     <>
       <NavLink to={linkTo}>
+        <div className="slide-in-blurred-top">
         <div
           className="max-w-sm rounded overflow-hidden shadow-lg"
           onMouseEnter={toggleMouseOver}
@@ -23,6 +24,7 @@ export default function Card({title, text, imgUrl, linkTo}) {
             {hovering && <DropDown title={title} text={text}/>}
           </div>
         </div>
+        </div>
       </NavLink>
     </>
   );
@@ -30,7 +32,7 @@ export default function Card({title, text, imgUrl, linkTo}) {
 
 function DropDown({title, text}) {
   return (
-    <div className="px-6 py-4 bg-blue">
+    <div className="px-6 py-4 bg-blue bg-[--scheme-1]">
       <div className="font-bold text-xl text-white mb-2">{title}</div>
       <p className="text-white text-base">
         {text}

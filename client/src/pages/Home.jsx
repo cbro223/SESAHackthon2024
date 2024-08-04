@@ -2,30 +2,40 @@ import React from 'react';
 import Header from '../components/Header';
 import Card from "../components/Card";
 
+import { NavLink } from 'react-router-dom';
+
 export default function Home() {
 
-  const RocketRacers = "The fastest vehicles across the Milky Way - will Luna Verstappen or Nebula Norris take the win?";
+  const PlanetaryPlummet = "Detonate one of three enemy planets - victory hinges on your choice!";
 
-  const StellarSlots = "Gaze out the window, and watch carefully... it might be a BREATH OF FRESH AIR";
+  const StellarSlots = "Gaze out the window, and watch carefully... it might be a breath of fresh air";
 
-  const GalacticGallop = "Cheer on your favourite extra-terrestial friend as they race to the finish line, dodging asteroids and UFOs";
+  const GalacticGallop = "Cheer on your favourite extra-terrestial friends as they race to the finish line!";
 
   const cardSpread = {
-    padding: 40
+    padding: 40,
+    paddingTop: 100
   };
 
   return (
     <>
+      <div className="slide-in-blurred-top">
       <Header/>
-      <div className="justify-center g-cover bg-center w-full h-screen home-page">
-        <div style={cardSpread} className={'card-container'}>
-          <Card title="Galactic Gallop" text={GalacticGallop} imgUrl="./assets/cards/GalacticGallop.PNG"
+      </div>
+      <div className="justify-center g-cover bg-center w-full home-page" style={{height: '80vh'}}>
+        <div style={cardSpread} className={'card-container drop-shadow-[2px_2px_10px_#5bc8af]'}>
+          <Card title="Galactic Gallop" text={GalacticGallop} imgUrl="./assets/cards/GalacticGallopIcon.PNG"
                 linkTo={'/horse-racing-bet'}/>
-          <Card title="Rocket Racers" text={RocketRacers} imgUrl="./assets/cards/RocketRacers.png"
-                linkTo={'/rocket-racing-bet'}/>
+          <Card title="Planetary Plummet" text={PlanetaryPlummet} imgUrl="./assets/cards/GunGameIcon.png"
+                linkTo={'/planetary-plummet'}/>
           <Card title="Stellar Slots" text={StellarSlots} imgUrl="./assets/cards/StellarSlotsIcon.png"
                 linkTo={'/slots'}/>
         </div>
+      </div>
+      <div className={'w-full bg-red-500'}>
+        <NavLink to={"/credits"} className={'disc'}>
+          <span className="invisible">Credits</span><span className={"symbol symbol--disc"}></span>
+        </NavLink>
       </div>
     </>
   );

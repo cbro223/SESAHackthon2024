@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import data from "../data.json";
 import {NavLink} from 'react-router-dom';
-
+import { fetchOxygenData, updateOxygenData } from "../utils";
 export default function Header() {
   return (
     <div className="header flex items-center p-4 bg-[#202060] text-white">
@@ -10,16 +10,36 @@ export default function Header() {
       <NavLink to={"/home"} className={"bubbly text-6xl"}>Lunar Luck</NavLink>
 
       <div className="flex-grow"></div>
-      <Oxygen data={data}/>
+      <Oxygen/>
     </div>
   );
 }
 
-const Oxygen = ({data}) => {
-  const oxygenPercentage = data.oxygen / 10000 * 100;
+const Oxygen = () => {
+  const [oxygen,setOxygen] = useState(0)
+
+  const [oxygenPercentage,setOxygenPercentage] = useState(0)
   const [colour, setColour] = useState("bg-green-500");
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const result = await fetchOxygenData();
+        setOxygen(result.oxygen)
+        setOxygenPercentage(result.oxygen /10000 * 100)
+
+      } catch (error) {
+        console.error("There was a problem with the fetch operation:", error);
+      }
+    }
+    
+    getData()
+    const intervalId = setInterval(getData, 1000); // Call getData every 2 seconds
+
+  return () => clearInterval(intervalId);
+  }, [oxygen, oxygenPercentage]);
 
   useEffect(() => {
     if (oxygenPercentage < 20) {
@@ -49,10 +69,10 @@ const Oxygen = ({data}) => {
 
   return (
     <div className="relative w-40 mr-4">
-      <div className="outer-bar w-44 border-white rounded-md border-solid border-2 cursor-pointer"
+      <div className="outer-bar w-44 border-white rounded-md border-solid border-4 cursor-pointer"
            onClick={toggleDropdown}>
         <div className={`inner-bar ${colour} whitespace-nowrap`} style={{width: `${oxygenPercentage}%`}}>
-          <p>{data.oxygen} m<sup>3</sup></p>
+          <p className="nunito">{oxygen} m<sup>3</sup></p>
         </div>
       </div>
       {dropdownVisible && (

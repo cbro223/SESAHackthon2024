@@ -3,15 +3,10 @@ import Header from "../components/Header";
 import {NavLink} from "react-router-dom";
 
 export default function HorseRacingBetting() {
-  const [bettingAmount, setBettingAmount] = useState(0)
+  const [bettingAmount, setBettingAmount] = useState(10)
   const [stake, setStake] = useState(0)
   const [bettedColour, setBettedColour] = useState("green")
 
-  const updateStates = (bettingAmount, stake, bettedColour) => {
-    setBettingAmount(bettingAmount)
-    setStake(stake)
-    setBettedColour(bettedColour)
-  }
   return (
     <div className="h-screen from-[--scheme-1] via-[--scheme-4] to-[--scheme-5] slater">
 
@@ -23,15 +18,23 @@ export default function HorseRacingBetting() {
         <div className="flex flex-col text-white">
           <div className="w-100 flex justify-center">
             <img src="/assets/Banners/GalaticGallopBanner.png" alt="Banner title"
-                 className="w-1/2 drop-shadow-[2px_2px_10px_#c7b8bf]"/>
+                 className="w-1/2 drop-shadow-[2px_2px_10px_#c7b8bf] neon"/>
           </div>
           <div className="flex items-center justify-center">
             <div className="competitors flex flex-col gap-2 px-4 py-2 w-full max-w-3xl justify-center">
-              <Competitor colour="green" name="Galactic Glider" stakes="1.05" about={"GREEN BOI"}
-                          updateStates={updateStates}/>
-              <Competitor colour="blue" name="Pulsar Pacer" stakes="1.91" about={"BLUE BITCH"}/>
-              <Competitor colour="yellow" name="Orbital Overdrive" stakes="2.16" about={"YELLOW FELLOW"}/>
-              <Competitor colour="pink" name="Lightyear McQueen" stakes="2.76" about={"PINKIE"}/>
+            <div className="slide-in-blurred-left-1">
+            <Competitor colour="green" name="Galactic Glider" stakes="1.05" about={"GREEN BOI"} updateAmount={setBettingAmount} updateColour={setBettedColour} updateStake={setStake}/>
+            </div>
+            <div className="slide-in-blurred-left-2">
+            <Competitor colour="blue" name="Pulsar Pacer" stakes="1.91" about={"BLUE BITCH"} updateAmount={setBettingAmount} updateColour={setBettedColour} updateStake={setStake}/>
+            </div>
+            <div className="slide-in-blurred-left-3">
+            <Competitor colour="yellow" name="Orbital Overdrive" stakes="2.16" about={"YELLOW FELLOW"} updateAmount={setBettingAmount} updateColour={setBettedColour} updateStake={setStake}/>
+            </div>
+            <div className="slide-in-blurred-left-4">
+            <Competitor colour="pink" name="Lightyear McQueen" stakes="2.76" about={"PINKIE"} updateAmount={setBettingAmount} updateColour={setBettedColour} updateStake={setStake}/>
+            </div>
+
             </div>
           </div>
           <NavLink to={`/horse-racing/${bettedColour}/${stake}/${bettingAmount}`}
@@ -45,7 +48,7 @@ export default function HorseRacingBetting() {
   )
 }
 
-const Competitor = ({colour, name, stakes, about, updateStates}) => {
+const Competitor = ({colour, name, stakes, about, updateColour, updateStake, updateAmount}) => {
   const upperCaseColour = colour.charAt(0).toUpperCase() + colour.slice(1)
   const [betAmount, setBetAmount] = useState(0)
   const buttonClasses = "bg-gray-500 border-[solid .25em transparent] rounded-lg p-2"
@@ -56,6 +59,21 @@ const Competitor = ({colour, name, stakes, about, updateStates}) => {
 
   let onInfoHover = () => {
     console.log(about)
+  }
+
+  const buttonClicked = (isPositive) => {
+    if (isPositive){
+      setBetAmount(betAmount + 10)
+    updateAmount(betAmount + 10)
+
+    }
+    else {
+      setBetAmount(betAmount -10);
+    updateAmount(betAmount -10)
+
+    }
+    updateStake(stakes)
+    updateColour(colour)
   }
 
   return (
@@ -74,10 +92,10 @@ const Competitor = ({colour, name, stakes, about, updateStates}) => {
         </p>
         <p className="nunito font-bold text-xl">Returns: {stakes}</p>
         <div className="flex ml-30">
-          <button className="styled-button" onClick={() => setBetAmount(betAmount - 10)}>-10</button>
+          <button className="styled-button" onClick={() => buttonClicked(false)}>-10</button>
           <input type="text" value={betAmount}
                  className="bg-black border-[cyan] w-[4rem] rounded-md p-2 text-center text-white"/>
-          <button className="styled-button" onClick={() => setBetAmount(betAmount + 10)}>+10</button>
+          <button className="styled-button" onClick={() => buttonClicked(true)}>+10</button>
         </div>
       </div>
 
